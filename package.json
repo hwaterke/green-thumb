@@ -1,0 +1,27 @@
+{
+  "name": "green-thumb",
+  "private": true,
+  "version": "1.0.0",
+  "repository": "git@github.com:hwaterke/green-thumb.git",
+  "author": "hwaterke <hwaterke@users.noreply.github.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.5",
+    "prettier": "^1.17.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "lint-staged": {
+    "*.{css,scss,json,md,yml,html,js,ts}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}
