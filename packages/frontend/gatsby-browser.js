@@ -4,4 +4,5 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-// You can delete this file if you're not using it
+// Having bulma here makes sure it is imported before our styled components in both dev and build
+import 'bulma/css/bulma.css'
