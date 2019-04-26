@@ -1,5 +1,13 @@
 import React from 'react'
+import {Sidebar} from './Sidebar'
 
 export const App = () => {
-  return <p>Hello World</p>
+  return (
+    <div className="columns is-gapless">
+      <Sidebar />
+      <div className="column">
+        <p>Hello</p>
+      </div>
+    </div>
+  )
 }
