@@ -36,10 +36,10 @@ export const Sidebar = () => {
       <Inside>
         <ul>
           <li>
-            <Item to="/">
+            <Item href="/">
               <FaLeaf />
             </Item>
-            <Item to="/settings">
+            <Item href="/settings">
               <FaCog />
             </Item>
           </li>
