@@ -2,17 +2,43 @@
   "name": "@green-thumb/frontend",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  },
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.0"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build"
+  "devDependencies": {
+    "lint-staged": "^8.1.5"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:import/errors",
+      "plugin:import/warnings"
+    ],
+    "rules": {
+      "curly": [
+        "error",
+        "all"
+      ],
+      "react/default-props-match-prop-types": "error",
+      "react/no-direct-mutation-state": "error",
+      "react/no-typos": "warn",
+      "react/no-unused-prop-types": "warn",
+      "react/no-will-update-set-state": "error",
+      "react/prop-types": "error",
+      "react/void-dom-elements-no-children": "error",
+      "linebreak-style": [
+        "error",
+        "unix"
+      ]
+    }
   },
   "browserslist": {
     "production": [
@@ -24,6 +50,12 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --max-warnings 0",
+      "git add"
     ]
   }
 }
