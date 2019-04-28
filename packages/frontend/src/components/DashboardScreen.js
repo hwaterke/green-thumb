@@ -1,3 +1,12 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import {FirebaseAuthContext} from './FIrebaseContectProvider'
 
-export const DashboardScreen = () => <div>DashboardScreen</div>
+export const DashboardScreen = () => {
+  const user = useContext(FirebaseAuthContext)
+
+  return (
+    <div>
+      <p>Hello {user.displayName}</p>
+    </div>
+  )
+}

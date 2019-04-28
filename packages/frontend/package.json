@@ -8,7 +8,9 @@
   },
   "dependencies": {
     "@reach/router": "^1.2.1",
+    "@types/react": "^16.8.14",
     "bulma": "^0.7.4",
+    "firebase": "^5.10.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-icons": "^3.6.1",
