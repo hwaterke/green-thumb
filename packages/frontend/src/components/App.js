@@ -1,13 +1,18 @@
 import React from 'react'
-import {Sidebar} from './Sidebar'
+import {Router} from '@reach/router'
+import {LoginScreen} from './LoginScreen'
+import {DashboardScreen} from './DashboardScreen'
+import {Layout} from './Layout'
+import {SettingsScreen} from './SettingsScreen'
 
 export const App = () => {
   return (
-    <div className="columns is-gapless">
-      <Sidebar />
-      <div className="column">
-        <p>Hello</p>
-      </div>
-    </div>
+    <Router>
+      <LoginScreen path="/login" />
+      <Layout path="/">
+        <DashboardScreen path="/" />
+        <SettingsScreen path="/settings" />
+      </Layout>
+    </Router>
   )
 }

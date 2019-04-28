@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import {sizes} from '../constants/media'
 import {FaCog, FaLeaf} from 'react-icons/fa'
+import {Link} from '@reach/router'
 
 const Container = styled.div.attrs({className: 'column'})`
   flex-grow: 0;
@@ -19,7 +20,7 @@ const Inside = styled.div`
   padding: 1rem 0;
 `
 
-const Item = styled.a`
+const Item = styled(Link)`
   color: rgb(90, 120, 90);
   display: flex;
   align-items: center;
@@ -36,10 +37,10 @@ export const Sidebar = () => {
       <Inside>
         <ul>
           <li>
-            <Item href="/">
+            <Item to="/">
               <FaLeaf />
             </Item>
-            <Item href="/settings">
+            <Item to="/settings">
               <FaCog />
             </Item>
           </li>
