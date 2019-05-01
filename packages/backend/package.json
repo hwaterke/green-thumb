@@ -10,6 +10,9 @@
     "prebuild": "rm -r build || true",
     "build": "tsc"
   },
+  "dependencies": {
+    "dotenv": "^7.0.0"
+  },
   "devDependencies": {
     "@types/node": "^11.13.8",
     "nodemon": "^1.19.0",
