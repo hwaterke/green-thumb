@@ -1,0 +1,19 @@
+{
+  "name": "@green-thumb/backend",
+  "version": "0.1.0",
+  "private": true,
+  "main": "build/index.js",
+  "types": "build/index",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "dev": "nodemon",
+    "prebuild": "rm -r build || true",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^11.13.8",
+    "nodemon": "^1.19.0",
+    "ts-node": "^8.1.0",
+    "typescript": "^3.4.5"
+  }
+}
