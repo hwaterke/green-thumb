@@ -4,11 +4,10 @@ import admin from 'firebase-admin'
 // @ts-ignore
 import sensor from 'node-dht-sensor'
 
-// tslint:disable-next-line:no-console
-console.log('Reading sensor data')
-
 // tslint:disable-next-line:no-var-requires
 const serviceAccount = require('../serviceAccountKey.json')
+
+const INTERVAL = 5 * 60 * 1000
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
@@ -17,12 +16,14 @@ admin.initializeApp({
 
 const db = admin.firestore()
 
-sensor.read(22, 23, (err: any, temperature: number, humidity: number) => {
-  if (!err) {
-    db.collection('sensor-data').add({
-      date: admin.firestore.Timestamp.fromDate(new Date()),
-      humidity,
-      temperature,
-    })
-  }
-})
+setInterval(() => {
+  sensor.read(22, 23, (err: any, temperature: number, humidity: number) => {
+    if (!err) {
+      db.collection('sensor-data').add({
+        date: admin.firestore.Timestamp.fromDate(new Date()),
+        humidity,
+        temperature,
+      })
+    }
+  })
+}, INTERVAL)
