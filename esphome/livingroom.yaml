@@ -1,0 +1,49 @@
+esphome:
+  name: livingroom
+  platform: ESP8266
+  board: huzzah
+
+wifi:
+  ssid: '<SSID>'
+  password: '<PASSWORD>'
+
+# Enable logging
+logger:
+
+i2c:
+
+mqtt:
+  broker: 192.168.42.112
+  username: mosquitto
+  password: '<PASSWORD>'
+  discovery: False
+  discovery_retain: False
+
+sensor:
+  - platform: dht
+    pin: 2
+    temperature:
+      name: 'DHT22 Temperature'
+    humidity:
+      name: 'DHT22 Humidity'
+    update_interval: 60s
+  - platform: bme680
+    temperature:
+      name: 'BME680 Temperature'
+    pressure:
+      name: 'BME680 Pressure'
+    humidity:
+      name: 'BME680 Humidity'
+    gas_resistance:
+      name: 'BME680 Gas Resistance'
+    address: 0x77
+    update_interval: 60s
+  - platform: sgp30
+    eco2:
+      name: 'SGP30 eCO2'
+      accuracy_decimals: 1
+    tvoc:
+      name: 'SGP30 TVOC'
+      accuracy_decimals: 1
+    address: 0x58
+    update_interval: 60s
